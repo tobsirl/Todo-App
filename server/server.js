@@ -12,6 +12,9 @@ const { PORT } = process.env;
 // Make database connection
 connectDatabase();
 
+// Middleware
+app.use(express.json({ extended: false })); // no need for bodyparser anymore
+
 // Use Routes
 app.use('/api/users', users);
 app.use('/api/tasks', tasks);
