@@ -1,0 +1,19 @@
+{
+  "name": "todo-app",
+  "version": "1.0.0",
+  "description": "Todo App for RedHat screener",
+  "main": "server.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tobsirl/Todo-App.git"
+  },
+  "author": "Paul Tobin <tobster111@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tobsirl/Todo-App/issues"
+  },
+  "homepage": "https://github.com/tobsirl/Todo-App#readme"
+}
