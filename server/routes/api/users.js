@@ -1,6 +1,8 @@
 import express from 'express';
 import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
 import { check, validationResult } from 'express-validator/check';
+import 'dotenv/config';
 
 import User from '../../models/User';
 
@@ -59,8 +61,19 @@ router.post(
       await user.save();
 
       // Return JSON web token
+      const payload = {
+        user: {
+          id: user.id
+        }
+      };
 
-      res.send('User Successfully Registered');
+      const { JWTSECRET } = process.env;
+
+      // TODO change the expiresIn for production
+      jwt.sign(payload, JWTSECRET, { expiresIn: 3600000 }, (err, token) => {
+        if (err) throw err;
+        res.json({ token });
+      });
     } catch (err) {
       console.error(err.message);
       res.status(500).send('Server Error!');
