@@ -71,4 +71,17 @@ router.put('/update/:id', auth, async (req, res) => {
   }
 });
 
+// @route   GET api/tasks
+// @desc    Get all tasks
+// @access  Public
+router.get('/all', async (req, res) => {
+  try {
+    const tasks = await Task.find().populate('users', ['name']);
+    res.json(tasks);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
+});
+
 export default router;
