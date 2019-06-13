@@ -2,6 +2,7 @@ import express from 'express';
 
 import auth from '../../middleware/auth';
 import Task from '../../models/Task';
+import User from '../../models/User';
 
 const router = express.Router();
 
@@ -100,6 +101,21 @@ router.get('/user/:user_id', async (req, res) => {
     if (err.kind === 'ObjectId') {
       return res.status(400).json({ message: 'No tasks for this user' });
     }
+    console.error(err.message);
+  }
+});
+
+// @route   DELETE api/tasks
+// @desc    Delete tasks and user
+// @access  Private
+router.delete('/', auth, async (req, res) => {
+  try {
+    // remove tasks
+    await Task.findOneAndRemove({ user: req.user.id });
+    // remove user
+    await User.findOneAndRemove({ _id: req.user.id });
+    res.json({ message: 'User deleted' });
+  } catch (err) {
     console.error(err.message);
   }
 });
