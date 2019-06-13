@@ -44,9 +44,27 @@ router.post('/new', auth, async (req, res) => {
   if (completed) taskObj.completed = completed;
 
   try {
+    // create a new task
     let task = new Task(taskObj);
+    // save to the database
     await task.save();
+    // return json
     res.json(task);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
+});
+
+// @route   POST api/tasks/update/:id
+// @desc    Update a user task
+// @access  Private
+router.put('/update/:id', auth, async (req, res) => {
+  try {
+    let task = await Task.findById(req.params.id).exec();
+    task.set(req.body);
+    let result = await task.save();
+    res.json(result);
   } catch (err) {
     console.error(err.message);
     res.status(500).send('Server Error');
