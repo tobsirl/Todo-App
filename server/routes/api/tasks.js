@@ -1,7 +1,7 @@
 import express from 'express';
 
 import auth from '../../middleware/auth';
-// import User from '../../models/User';
+import User from '../../models/User';
 import Task from '../../models/Task';
 
 const router = express.Router();
@@ -24,6 +24,28 @@ router.get('/user', auth, async (req, res) => {
       return res.status(400).json({ message: 'No tasks for this user' });
     }
 
+    res.json(task);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
+});
+
+// @route   POST api/tasks/new
+// @desc    Create a user task
+// @access  Private
+router.post('/new', auth, async (req, res) => {
+  const { title, content, completed } = req.body;
+
+  const taskObj = {};
+  taskObj.user = req.user.id;
+  if (title) taskObj.title = title;
+  if (content) taskObj.content = content;
+  if (completed) taskObj.completed = completed;
+
+  try {
+    let task = new Task(taskObj);
+    await task.save();
     res.json(task);
   } catch (err) {
     console.error(err.message);
