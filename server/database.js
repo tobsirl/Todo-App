@@ -9,7 +9,7 @@ const connectDatabase = async () => {
       useNewUrlParser: true,
       useCreateIndex: true
     });
-    console.log(`Connection to Database established...`);
+    console.log(`Connection to Database established... 🤖`);
   } catch (err) {
     console.error(err.message);
     // Exit connection process
