@@ -45,7 +45,7 @@ router.post(
       if (!user) {
         return res
           .status(400)
-          .json({ errors: [{ msg: 'Invalid Credentials' }] });
+          .json({ errors: [{ message: 'Invalid Credentials' }] });
       }
 
       // checking if the passwords match
@@ -54,7 +54,7 @@ router.post(
       if (!isMatch) {
         return res
           .status(400)
-          .json({ errors: [{ msg: 'Invalid Credentials' }] });
+          .json({ errors: [{ message: 'Invalid Credentials' }] });
       }
 
       // Return JSON web token
