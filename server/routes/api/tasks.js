@@ -1,7 +1,6 @@
 import express from 'express';
 
 import auth from '../../middleware/auth';
-import User from '../../models/User';
 import Task from '../../models/Task';
 
 const router = express.Router();
@@ -81,6 +80,27 @@ router.get('/all', async (req, res) => {
   } catch (err) {
     console.error(err.message);
     res.status(500).send('Server Error');
+  }
+});
+
+// @route   GET api/tasks/user/:user_id
+// @desc    Get tasks by user ID
+// @access  Public
+router.get('/user/:user_id', async (req, res) => {
+  try {
+    const task = await Task.findOne({ user: req.params.user_id }).populate(
+      'users',
+      ['name']
+    );
+
+    if (!task)
+      return res.status(400).json({ message: 'No tasks for this user' });
+    res.json(task);
+  } catch (err) {
+    if (err.kind === 'ObjectId') {
+      return res.status(400).json({ message: 'No tasks for this user' });
+    }
+    console.error(err.message);
   }
 });
 
