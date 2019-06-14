@@ -4,7 +4,7 @@
   "description": "Todo App for RedHat screener",
   "main": "server.js",
   "scripts": {
-    "test": "test",
+    "test": "jest --watchAll",
     "dev": "nodemon --exec babel-node server.js"
   },
   "repository": {
@@ -23,7 +23,9 @@
     "@babel/preset-env": "^7.4.5",
     "eslint": "^5.16.0",
     "eslint-plugin-react": "^7.13.0",
-    "nodemon": "^1.19.1"
+    "jest": "^24.8.0",
+    "nodemon": "^1.19.1",
+    "supertest": "^4.0.2"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",

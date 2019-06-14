@@ -31,10 +31,10 @@ router.get('/user', auth, async (req, res) => {
   }
 });
 
-// @route   POST api/tasks/new
+// @route   POST api/tasks/
 // @desc    Create a user task
 // @access  Private
-router.post('/new', auth, async (req, res) => {
+router.post('/', auth, async (req, res) => {
   const { title, content, completed } = req.body;
 
   const taskObj = {};

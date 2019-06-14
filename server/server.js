@@ -6,7 +6,7 @@ import users from './routes/api/users';
 import tasks from './routes/api/tasks';
 import auth from './routes/api/auth';
 
-const app = express();
+export const app = express();
 
 const { PORT } = process.env;
 
