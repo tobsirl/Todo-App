@@ -4,8 +4,11 @@
   "description": "Todo App for RedHat screener",
   "main": "server.js",
   "scripts": {
+    "start": "node server.js",
     "test": "jest --watchAll",
-    "dev": "nodemon --exec babel-node server.js"
+    "server": "nodemon --exec babel-node server.js",
+    "client": "cd .. && cd client && npm start",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
     "type": "git",
@@ -21,6 +24,7 @@
     "@babel/core": "^7.4.5",
     "@babel/node": "^7.4.5",
     "@babel/preset-env": "^7.4.5",
+    "concurrently": "^4.1.0",
     "eslint": "^5.16.0",
     "eslint-plugin-react": "^7.13.0",
     "jest": "^24.8.0",
