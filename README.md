@@ -2,10 +2,10 @@
 
 RedHat Screener
 
-### Version
+### Prerequisite
 
-node v11.11.0
-npm v6.9.0
+* node v11.11.0
+* npm v6.9.0
 
 ### Server Side
 
@@ -25,7 +25,7 @@ npm v6.9.0
 
 ### User Model
 
-```json
+```js
 // User Schema
 const UserSchema = new Schema({
   name: {
@@ -48,7 +48,7 @@ const UserSchema = new Schema({
 });
 ```
 ### Task Model
-```json
+```js
 // Task Model 
 const TaskSchema = new Schema({
   user: {
