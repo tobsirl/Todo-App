@@ -1,10 +1,17 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import './Navbar.css'
 
 const Navbar = () => {
   return (
-    <div>
-      <h1>Navbar</h1>
-    </div>
+    <nav className="navbar bg-dark">
+      <h1>
+        <Link to="/">
+          <i className="fas fa-tasks" /> Todo App
+        </Link>
+      </h1>
+   
+    </nav>
   );
 };
 
