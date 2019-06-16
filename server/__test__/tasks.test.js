@@ -1,6 +1,6 @@
 import app from '../server';
 import request from 'supertest';
-import connectDatabase from '../database'
+import connectDatabase from '../database';
 
 beforeAll(async () => {
   await connectDatabase();
