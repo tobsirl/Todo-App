@@ -9,7 +9,7 @@
   width: 100%;
   top: 0;
   background: var(--dark-color);
-  border-bottom: solid 1px var(--primary-color);
+  border-bottom: solid 2.5px var(--primary-color);
   opacity: 0.9;
 }
 

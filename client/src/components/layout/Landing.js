@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './Landing.css';
 
 const Landing = () => {
@@ -8,9 +8,7 @@ const Landing = () => {
       <div className="dark-overlay">
         <div className="landing-inner">
           <h1 className="x-large">Todo App</h1>
-          <p className="lead">
-            Create a list of tasks to be completed
-          </p>
+          <p className="lead">Create a list of tasks to be completed</p>
           <div className="buttons">
             <Link to="/register" className="btn btn-primary">
               Sign Up
