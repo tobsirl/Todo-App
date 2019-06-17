@@ -125,6 +125,8 @@ const TaskSchema = new Schema({
 | /register | Public         | Register  | Create a User Account   |
 | /login    | Public         | Login     | Login with User Account |
 
+Would like to have done more on the frontend, the register user route is working front to back
+
 ## Security and Authentication
 
 - [jwt-token](https://jwt.io/)
